@@ -60,9 +60,7 @@ class BinarySearchTree {
           return { "connect": treeToFind, "prev": treeToFind.left };
       }
       let newNode = this.hardRemove(treeToFind.right, treeToConnect);
-      if (newNode.prev) {
-          treeToFind.right = newNode.prev;
-      }
+      treeToFind.right = newNode.prev;
       return { "connect": newNode.connect, "prev": treeToFind }; 
   }
   remove(data, tree = this.treeObject) {
