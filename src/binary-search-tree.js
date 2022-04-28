@@ -52,8 +52,10 @@ class BinarySearchTree {
       }
       return tree;
   }
-  hardRemove(treeToFind, treeToConnect) {
-      if (treeToFind.right == null) {
+  hardRemove(treeToFind, treeToConnect) { 
+    if (!treeToFind) return null;
+    if (!treeToConnect) return null;
+    if (treeToFind.right == null) {
           treeToFind.right = treeToConnect;
           return { "connect": treeToFind, "prev": treeToFind.left };
       }
@@ -61,9 +63,10 @@ class BinarySearchTree {
       if (newNode.prev) {
           treeToFind.right = newNode.prev;
       }
-      return { "connect": newNode.connect, "prev": treeToFind };
+      return { "connect": newNode.connect, "prev": treeToFind }; 
   }
   remove(data, tree = this.treeObject) {
+      console.log(tree);
       if (tree == null) return null;
       if (tree.data > data) {
           tree.right = this.remove(data, tree.right);
